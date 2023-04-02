@@ -138,6 +138,7 @@ class WebPack implements IF_UNIT
 	 */
 	function Js($path)
 	{
+        $path = rtrim($path, '.js') . '.js';
 		$this->Set('js', $path);
 	}
 
@@ -147,6 +148,7 @@ class WebPack implements IF_UNIT
 	 */
 	function Css($path)
 	{
+        $path = rtrim($path, '.css') . '.css';
 		$this->Set('css', $path);
 	}
 
