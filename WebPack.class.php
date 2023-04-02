@@ -272,6 +272,29 @@ class WebPack implements IF_UNIT
 		$this->Session($ext, []);
 	}
 
+    /** Out by directory.
+     *
+     */
+    private function _OutDir(array $pathes, string $ext):void
+    {
+        //  ...
+        foreach( $pathes as $path ){
+            //  ...
+            if(!is_dir($path) ){
+                Notice("This path is not directory. ($path)");
+                continue;
+            }
+
+            //  ...
+            $path = rtrim($path, '/');
+
+            //  ...
+            foreach( glob("{$path}/*.{$ext}") as $file ){
+                self::_OutFile($file);
+            }
+        }
+    }
+
 	/** Generate unique hash key by stacked files name.
 	 *
 	 * @deprecated 2020-05-23
