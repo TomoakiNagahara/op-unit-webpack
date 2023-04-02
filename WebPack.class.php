@@ -295,6 +295,34 @@ class WebPack implements IF_UNIT
         }
     }
 
+    /** Out by file.
+     *
+     */
+    private function _OutFile(string $file):void
+    {
+        //	...
+        static $_is_admin;
+
+        //	...
+        if( $_is_admin === NULL ){
+            $_is_admin = Env::isAdmin();
+        }
+
+        //  ...
+        $file = CompressPath($file);
+
+        //	...
+        if( $_is_admin ){
+            echo "/* {$file} */\n";
+        }
+
+        //	...
+        Template( $file /*, [], false */ );
+
+        //	...
+        echo "\n";
+    }
+
 	/** Generate unique hash key by stacked files name.
 	 *
 	 * @deprecated 2020-05-23
