@@ -328,9 +328,8 @@ class WebPack implements IF_UNIT
         echo "\n";
     }
 
-	/** Generate unique hash key by stacked files name.
+	/** Generate a unique hash key by file names stacked in session.
 	 *
-	 * @deprecated 2020-05-23
 	 * @param   string     $extension
 	 * @return  string     hash
 	 */
@@ -340,16 +339,16 @@ class WebPack implements IF_UNIT
 		static $_hash;
 
 		//	...
-		if( $_hash ?? null ){
+		if( empty($_hash[$ext]) ){
 			$temp = $this->Session($ext);
 			$temp = json_encode($temp);
 			$temp = md5($temp);
 			$temp = substr($temp, 0, 8);
-			$_hash = $temp .'.'. (int)Env::Get('webpack')['serial'];
+			$_hash[$ext] = $temp;
 		};
 
 		//	...
-		return $_hash;
+		return $_hash[$ext];
 	}
 
 	/** Generate unique hash key by stacked files.
