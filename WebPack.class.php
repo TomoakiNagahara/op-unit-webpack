@@ -136,7 +136,7 @@ class WebPack implements IF_UNIT
 	 *
 	 * @param string $path
 	 */
-	function Js($path)
+	function Js(string $path)
 	{
         $path = rtrim($path, '.js') . '.js';
 		$this->Set('js', $path);
@@ -146,7 +146,7 @@ class WebPack implements IF_UNIT
 	 *
 	 * @param string $path
 	 */
-	function Css($path)
+	function Css(string $path)
 	{
         $path = rtrim($path, '.css') . '.css';
 		$this->Set('css', $path);
