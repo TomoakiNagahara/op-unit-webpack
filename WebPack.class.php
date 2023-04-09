@@ -122,7 +122,10 @@ class WebPack implements IF_UNIT
 			//	...
 			$path = realpath($path);
 
-			//	...
+			/** Remove extension is not need.
+			 *
+			 * @deprecated  2023-04-09
+			 */
 			$pos  = strrpos($path, '.');
 			$ext  = substr($path, $pos+1);
 			$path = substr($path, 0, $pos);
