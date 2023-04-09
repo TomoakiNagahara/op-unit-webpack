@@ -17,6 +17,7 @@ namespace OP;
 $webpack = Unit('WebPack');
 $webpack->Auto('testcase.js');
 $webpack->Auto('testcase.css');
+$webpack->Auto('../testcase/testcase.css');
 
 D($_SESSION);
 
