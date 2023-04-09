@@ -31,7 +31,7 @@ OP()->Unit('WebPack')->Out('css');
 $hash = Unit('WebPack')->FileContentHash('css');
 
 //  Build URL.
-$href = ConvertURL('app:/') . "webpack/css/?hash={$hash}";
+$href = ConvertURL("app:/webpack/css/?hash={$hash}");
 
 //  Display for html.
 echo '<link type="text/css" href="'.$href.'" rel="stylesheet">';
