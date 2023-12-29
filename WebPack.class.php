@@ -89,7 +89,7 @@ class WebPack implements IF_UNIT
 
 		//	...
 		if(!$_directory ){
-			throw new \Exception("WebPack directory is not set.\n Env::Set('webpack',['directory'=>\$path])");
+			Notice::Set("WebPack directory is not set.\n Env::Set('webpack',['directory'=>\$path])");
 		}
 
 		//	...
