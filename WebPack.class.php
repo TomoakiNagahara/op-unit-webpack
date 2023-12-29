@@ -237,10 +237,12 @@ class WebPack implements IF_UNIT
 		}
 
 		//	Get target directory.
+		$list = [];
 		$path = self::Directory();
-
-		//	...
-		$list = include(rtrim($path, '/') . '/action.php');
+		$path = "{$path}/{$ext}/action.php";
+		if( file_exists($path) ){
+			$list = include($path);
+		};
 
 		//	...
 		foreach( array_merge($list, ($this->Session($ext) ?? [])) as $file_path ){
