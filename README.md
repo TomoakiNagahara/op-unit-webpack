@@ -7,32 +7,35 @@ Unit of WebPack
 
 # Usage
 
-```
+```php
 //  Add to One by One.
-OP()->Unit('WebPack')->Auto('file_name.js');
-OP()->Unit('WebPack')->Auto('file_name.css');
+OP()->WebPack()->Auto('file_name.js');
+OP()->WebPack()->Auto('file_name.css');
 
-//  Add to Bulk.
-OP()->Unit('WebPack')->Auto('file_name.js','file_name.css');
+//  Add in Bulk.
+OP()->WebPack()->Auto('file_name.js', 'file_name.css');
+
+//  Add of directory.
+OP()->WebPack()->Auto('./');
+
+//  You can use meta-path.
+OP()->WebPack()->Auto('asset:/webpack/css/');
 ```
 
-## Output the content from the registered file path
-
- Call from webpack directory. For example, `app/:webpack/index.php`.
+ Output the source code from the registered file path.
 
 ```php
-OP()->Unit('WebPack')->Out('css');
+OP()->WebPack()->Auto();
 ```
 
-## For html.
+## For HTML
+
+ Get a hash of packed source code. That use for browser cache.
 
 ```php
-//  Get a hash of content. For browser cache.
-$hash = Unit('WebPack')->FileContentHash('css');
+$hash = OP()->WebPack()->Hash('js');
+```
 
-//  Build URL.
-$href = ConvertURL("app:/webpack/css/?hash={$hash}");
-
-//  Display for html.
-echo '<link type="text/css" href="'.$href.'" rel="stylesheet">';
+```html
+<script src="/js/?hash=<?= $hash ?>"></script>
 ```
