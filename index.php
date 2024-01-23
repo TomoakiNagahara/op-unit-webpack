@@ -7,5 +7,16 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
+
+/** Declare strict
+ *
+ */
+declare(strict_types=1);
+
+/** namespace
+ *
+ */
+namespace OP;
+
 //	...
-include(__DIR__.'/WebPack.class.php');
+include_once(__DIR__.'/WebPack2024.class.php');
