@@ -66,6 +66,15 @@ trait OP_WEBPACK_2024
 
 	static private function _RegisterFiles(array $paths)
 	{
+		//	Save current directory.
+		$save_dir = getcwd();
+
+		//	Change client file directory.
+		$traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
+		$file   = $traces[1]['file'];
+		chdir( dirname($file) );
+		unset($traces, $file);
+
 		//	...
 		$session = & self::Session();
 
@@ -84,7 +93,7 @@ trait OP_WEBPACK_2024
 
 			//	...
 			if(!$real_path = realpath($path) ){
-				OP()->Notice("This directory does not exist. ($path)");
+				OP()->Notice("This path does not exist. ($path)");
 				continue;
 			}
 
@@ -130,6 +139,9 @@ trait OP_WEBPACK_2024
 			//	Add file path.
 			$session[$extension][] = $real_path;
 		}
+
+		//	Recovery current directory.
+		chdir($save_dir);
 	}
 
 	static private function _RegisterFilesFromDirectory()
