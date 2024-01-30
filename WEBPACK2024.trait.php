@@ -130,7 +130,7 @@ trait OP_WEBPACK_2024
 			}
 
 			//	Remove duplicate files.
-			if( $session[$extension] ){
+			if( $session[$extension] ?? null ){
 				if( in_array($real_path, $session[$extension]) ){
 					continue;
 				}
