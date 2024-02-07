@@ -38,6 +38,10 @@ trait OP_WEBPACK_2024
 	 */
 	use OP_SESSION;
 
+	/** Auto
+	 *
+	 * @param  array  ...$args
+	 */
 	static public function Auto(...$args)
 	{
 		//	...
