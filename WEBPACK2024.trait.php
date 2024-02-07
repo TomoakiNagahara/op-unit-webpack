@@ -197,7 +197,7 @@ trait OP_WEBPACK_2024
 		}
 	}
 
-	static private function _Cache($extension)
+	static private function _Cache(string $extension)
 	{
 		self::Config('cache');
 	}
