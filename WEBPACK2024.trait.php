@@ -48,7 +48,7 @@ trait OP_WEBPACK_2024
 		if( empty($args) ){
 			self::_OutputSourceCode();
 		}else{
-			self::_RegisterFiles($args);
+			self::RegisterFiles($args);
 		}
 	}
 
@@ -68,7 +68,7 @@ trait OP_WEBPACK_2024
 		return $hash;
 	}
 
-	static private function _RegisterFiles(array $paths)
+	static public function RegisterFiles(array $paths)
 	{
 		//	Save current directory.
 		$save_dir = getcwd();
@@ -80,6 +80,19 @@ trait OP_WEBPACK_2024
 		unset($traces, $file);
 
 		//	...
+		self::_RegisterFiles($paths);
+
+		//	Recovery current directory.
+		chdir($save_dir);
+	}
+
+	/** Register files.
+	 *
+	 * @param  array  $paths
+	 */
+	static private function _RegisterFiles(array $paths)
+	{
+		//	...
 		$session = & self::Session();
 
 		//	...
@@ -87,6 +100,12 @@ trait OP_WEBPACK_2024
 			//	...
 			if( strstr($path, '../') ){
 				OP()->Notice("Parent directory cannot be specified. ($path)");
+				continue;
+			}
+
+			//	...
+			if( strstr($path, '*') ){
+				self::_RegisterFiles( glob($path) );
 				continue;
 			}
 
@@ -143,9 +162,6 @@ trait OP_WEBPACK_2024
 			//	Add file path.
 			$session[$extension][] = $real_path;
 		}
-
-		//	Recovery current directory.
-		chdir($save_dir);
 	}
 
 	static private function _RegisterFilesFromDirectory()
