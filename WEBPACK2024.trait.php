@@ -187,6 +187,9 @@ trait OP_WEBPACK_2024
 		}
 	}
 
+	/** Output source code.
+	 *
+	 */
 	static private function _OutputSourceCode()
 	{
 		//	...
