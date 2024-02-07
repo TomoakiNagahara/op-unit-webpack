@@ -73,6 +73,10 @@ trait OP_WEBPACK_2024
 		return $hash;
 	}
 
+	/** Register files.
+	 *
+	 * @param  array  $paths
+	 */
 	static public function RegisterFiles(array $paths)
 	{
 		//	Save current directory.
