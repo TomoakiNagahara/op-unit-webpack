@@ -169,6 +169,9 @@ trait OP_WEBPACK_2024
 		}
 	}
 
+	/** Register files from directory.
+	 *
+	 */
 	static private function _RegisterFilesFromDirectory()
 	{
 		//	...
