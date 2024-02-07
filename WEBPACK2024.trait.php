@@ -52,6 +52,11 @@ trait OP_WEBPACK_2024
 		}
 	}
 
+	/** Hash
+	 *
+	 * @param   string  $extension
+	 * @return  string
+	 */
 	static public function Hash(string $extension) : string
 	{
 		//	Get session by extension.
