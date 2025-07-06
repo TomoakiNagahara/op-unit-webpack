@@ -4,7 +4,7 @@
  * @created    2024-05-24
  * @version    1.0
  * @package    op-unit-webpack
- * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
 
@@ -23,7 +23,7 @@ namespace OP\UNIT\WEBPACK;
  * @creation   2023-05-24
  * @version    1.0
  * @package    op-unit-webpack
- * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
 function MinifyJS($js) {
