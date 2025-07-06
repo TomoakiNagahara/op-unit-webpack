@@ -4,7 +4,7 @@
  * @created    2024-01-22
  * @version    2.0
  * @package    op-unit-webpack
- * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
 
@@ -36,7 +36,7 @@ include_once(__DIR__.'/WEBPACK_2024.trait.php');
  * @created    2024-01-22
  * @version    2.0
  * @package    op-unit-webpack
- * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
 class WebPack implements IF_UNIT, IF_WEBPACK
