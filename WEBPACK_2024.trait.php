@@ -92,7 +92,7 @@ trait WEBPACK_2024
 		$traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
 
 		//	...
-		$asset_root = OP()->MetaPath('asset:/');
+		$asset_root = OP()->Path('asset:/');
 		$asset_root = realpath($asset_root);
 
 		//	Search the called directory.
@@ -145,7 +145,7 @@ trait WEBPACK_2024
 				self::_RegisterFiles([$paths]);
 				break;
 			default:
-				OP()->Notice("This argument type is not supported. `{$type}`");
+				OP()->Error("This argument type is not supported. `{$type}`");
 		}
 
 		//	Recovery current directory.
@@ -165,7 +165,7 @@ trait WEBPACK_2024
 		foreach( $paths as $path ){
 			//	...
 			if( strstr($path, '../') ){
-				OP()->Notice("Parent directory cannot be specified. ($path)");
+				OP()->Error("Parent directory cannot be specified: {$path}");
 				continue;
 			}
 
@@ -177,12 +177,12 @@ trait WEBPACK_2024
 
 			//	...
 			if( strstr($path, ':/') ){
-				$path = OP()->MetaPath($path);
+				$path = OP()->Path($path);
 			}
 
 			//	...
 			if(!$real_path = realpath($path) ){
-				OP()->Notice("This path does not exist. ($path)");
+				OP()->Error("This path does not exist: {$path}");
 				continue;
 			}
 
@@ -272,12 +272,12 @@ trait WEBPACK_2024
 		$config  = $configs[$extension] ?? [];
 
 		//	...
-		if( \OP\Env::isAdmin() ){
+		if( OP()->isAdmin() ){
 			$config = array_merge($config, $configs['admin'] ?? []);
 		}
 
 		//	...
-		$debug = \OP\Env::isAdmin() ? $config['debug'] ?? null: false;
+		$debug = OP()->isAdmin() ? $config['debug'] ?? null: false;
 		$cache = $config['cache'] ?? null;
 
 		//	...
@@ -384,7 +384,7 @@ trait WEBPACK_2024
 		$extension = require(__DIR__.'/include/GetExtensionFromURL.php');
 
 		//	Set MIME
-		\OP\Env::MIME($extension);
+		OP()->MIME($extension);
 
 		//	Get specified layout name.
 		if( $layout = OP()->Request('layout') ){
