@@ -4,7 +4,7 @@
  * @created    2024-08-06
  * @version    2.0
  * @package    op-unit-webpack
- * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
 
@@ -43,7 +43,7 @@ if( empty($ext) ){
 	/*
 	OP()->Notice("The extension could not be found. `{$_SERVER['REQUEST_URI']}`");
 	*/
-	throw new \Exception("The extension could not be found. `{$_SERVER['REQUEST_URI']}`");
+	throw new \Exception("The extension could not be found: {$_SERVER['REQUEST_URI']}");
 }
 
 //	Return extension.
