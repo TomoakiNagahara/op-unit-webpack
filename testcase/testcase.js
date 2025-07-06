@@ -4,7 +4,7 @@
  * @creation  2020-05-22
  * @version   1.0
  * @package   op-unit-webpack
- * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author    Tomoaki Nagahara
  * @copyright Tomoaki Nagahara All right reserved.
  */
 //?>
