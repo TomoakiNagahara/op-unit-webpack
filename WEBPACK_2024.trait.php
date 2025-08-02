@@ -170,14 +170,14 @@ trait WEBPACK_2024
 			}
 
 			//	...
+			if( strstr($path, ':/') ){
+				$path = OP()->Path($path);
+			};
+
+			//	...
 			if( strstr($path, '*') ){
 				self::_RegisterFiles( glob($path) );
 				continue;
-			}
-
-			//	...
-			if( strstr($path, ':/') ){
-				$path = OP()->Path($path);
 			}
 
 			//	...
