@@ -159,7 +159,7 @@ trait WEBPACK_2024
 	static private function _RegisterFiles(array $paths)
 	{
 		//	...
-		$session = & self::Session();
+		$session = & self::Session() ?? [];
 
 		//	...
 		foreach( $paths as $path ){
